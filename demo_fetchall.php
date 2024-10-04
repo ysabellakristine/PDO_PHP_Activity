@@ -3,7 +3,7 @@ require 'dbConfig.php'; // Requires the database configuration
 
 $table = isset($_POST['table']) ? $_POST['table'] : null;  // denotes table as well as checks if the table name is valid, if so it assigns table variable
 $stmt = $pdo->query("SHOW TABLES");                        // uses PDO to do sql query of SHOW TABLES, SHOW TABLES = instantly lists all tables in database in one column
-$tables = $stmt->fetchAll(PDO::FETCH_COLUMN);              // uses PDO to do sql query of SHOW TABLES, SHOW TABLES = instantly lists all tables in database in one column
+$tables = $stmt->fetchAll(PDO::FETCH_COLUMN);              // PDO::FETCH_COLUMN gets all items from first column, so it gets the table names
 
 $results = [];                                              // initialize results
 
