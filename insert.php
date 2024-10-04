@@ -1,6 +1,5 @@
-// inserts SQL into database
-<?php
-require 'dbConfig.php'; //uses the dbConfig.php file
+<?php                                              // code is for inserting sql into database
+require 'dbConfig.php';                           //uses the dbConfig.php file
 
 try {
   $con = newPDO($dsn, $user, $password, $options); // creates PDO instance
