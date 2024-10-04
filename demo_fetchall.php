@@ -33,11 +33,11 @@ if ($table) {                                               // check if the tabl
     echo "No table specified.";                                         // in case na walang specified na table
 }
 
-if (!empty($results)) {                                                 // Display the results
+if (!empty($results)) {                                                 // Display results
     echo "<h2>Data from Tables:</h2>";
     foreach ($results as $tableName => $data) {
         echo "<h3>" . htmlspecialchars($tableName) . "</h3>";
-        echo "<pre>" . print_r($data, true) . "</pre>"; // Use print_r for display
+        echo "<pre>" . print_r($data, true) . "</pre>"; // Use print_r w/ <pre> in between
     }
 } else {
     echo "No data found.";
