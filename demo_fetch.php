@@ -50,6 +50,10 @@ if ($table) {                                              // Check if the table
 </head>
 <body>
     <div class="container"> <!-- Container for results -->
+    <br> <br>
+    <form action="index.php" method="get">
+        <button type="menu">RETURN TO MENU</button>
+    </form>
         <?php if (!empty($results)) {                                                 // Display results
             echo "<h2>Data from Tables:</h2>";
             foreach ($results as $tableName => $data) {
