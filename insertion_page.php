@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {                                     
         <?php endif; ?>
         <!-- return to menu -->
         <form action="index.php" method="get">
-        <button type="submit">RETURN TO MENU</button>
+        <button type="menu">RETURN TO MENU</button>
         </form>
     <?php endif; ?>
 </div>
