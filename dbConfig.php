@@ -29,19 +29,19 @@ try {
     if (file_exists('schema.sql')) {
         $schema = file_get_contents('schema.sql');  // Reads content of the schema.sql file
         $pdo->exec($schema);                      // Executes SQL statements to create tables
-        echo "Ayos na tables natin.<br>";                     // Prints statement once completed
+        $sqlconnection_Message = "Ayos na tables natin.<br>";                     // Prints statement once completed
     } else {
-        echo "Schema file not found.<br>";
+        $sqlconnection_Message ="Schema file not found.<br>";
     }
 
     if (file_exists('database.sql')) {
         $data = file_get_contents('database.sql');    // Reads content of the database.sql file
         $pdo->exec($data);                          // Executes SQL statements within the file
-        echo "Ayie na-insert yung SQL file na maayos.<br>";     // Prints statement once completed
+        $dbconnection_Message = "Ayie na-insert yung SQL file na maayos.<br>";     // Prints statement once completed
     } else {
-        echo "Database file not found.<br>";
+        $dbconnection_Message = "Database file not found.<br>";
     }
 
 } catch (PDOException $e) {
-    echo "Data insertion failed: " . $e->getMessage();          // Error handling
+    $dbconnection_Message = "Data insertion failed: " . $e->getMessage();          // Error handling
 }
