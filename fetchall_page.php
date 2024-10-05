@@ -13,20 +13,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['table'])) {
     if ($table === 'Fetch All Data') {
         // Fetch all data from all tables
         foreach ($tables as $tableName) {
-            $stmt = $pdo->query("SELECT * FROM `$tableName`");
-            $results[$tableName] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            try {
+                $stmt = $pdo->prepare("SELECT * FROM `$tableName`");
+                $stmt->execute(); // Execute the prepared statement
+                $results[$tableName] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "<p>Error fetching data from $tableName: " . htmlspecialchars($e->getMessage()) . "</p>";
+            }
         }
     } elseif (in_array($table, $tables)) {
         // Fetch data from the selected table
-        $stmt = $pdo->prepare("SELECT * FROM `$table`");
-        $stmt->execute(); // Execute the prepared statement
-        $results[$table] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $stmt = $pdo->prepare("SELECT * FROM `$table`");
+            $stmt->execute(); // Execute the prepared statement
+            $results[$table] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "<p>Error fetching data: " . htmlspecialchars($e->getMessage()) . "</p>";
+        }
     } else {
         echo "<p>Invalid table name specified.</p>"; // Error message for invalid table name
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,14 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['table'])) {
     <link rel="stylesheet" href="styles.css"> <!-- Reference to your CSS file -->
 </head>
 <body>
+<div class="container"> 
     <h1>Select a Table to Fetch Data</h1>
-
-    <!-- Form to select a table -->
-    <form action="demo_fetchall.php" method="post"> <!-- Ensure action is pointing to the same page -->
+    <form action="demo_fetchall.php" method="post"> 
         <label for="table">Choose a table:</label>
         <select name="table" id="table" required>
             <option value="">-- Select a table --</option>
-            <option value="Fetch All Data">Fetch All Data</option> <!-- Option for fetching all tables -->
+            <option value="Fetch All Data">Fetch All Data</option> 
             <?php foreach ($tables as $tableName): ?>
                 <option value="<?php echo htmlspecialchars($tableName); ?>"><?php echo htmlspecialchars($tableName); ?></option>
             <?php endforeach; ?>
@@ -65,5 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['table'])) {
     <?php else: ?>
         <p>No results to display. Please select a table and fetch data.</p>
     <?php endif; ?>
+</div>
 </body>
 </html>
