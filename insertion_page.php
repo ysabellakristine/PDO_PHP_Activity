@@ -119,6 +119,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {                                     
                 <input type="submit" value="Insert Book">
             </form>
         <?php endif; ?>
+        <!-- return to menu -->
+        <form action="index.php" method="get">
+        <button type="submit">RETURN TO MENU</button>
+        </form>
     <?php endif; ?>
 </div>
 </body>
