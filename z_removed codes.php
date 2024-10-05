@@ -29,3 +29,36 @@ try {
     echo "Error: " . $e->getMessage();                 // Error handling
 }
 
+<?php
+// checkConnection.php, removed because my head hurt too much trying to understand it thanks.
+?>
+
+<?php 
+require_once 'dbConfig.php';
+
+if (!file_exists('checkConnection.php')) {
+    die('Connection check file not found.');
+}
+
+list($dbconnection_Message, $cssClass) = include('checkConnection.php');
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Connection</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+<div class="connection-message <?php echo htmlspecialchars($cssClass); ?>"> 
+    <?php echo htmlspecialchars($dbconnection_Message); ?>
+</div>
+
+</body>
+</html>
+
+
