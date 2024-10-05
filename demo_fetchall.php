@@ -15,7 +15,7 @@ if ($table) {                                               // Check if the tabl
                 $results[$tableName] = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch as associative array
             }
         } catch (PDOException $e) {
-            echo "Error fetching data: " . htmlspecialchars($e->getMessage()); // Error handling
+            echo "Error fetching data: " . htmlspecialchars(string: $e->getMessage()); // Error handling
         }
     } elseif (in_array($table, $tables)) {              // Fetch data from the selected table
         try {
