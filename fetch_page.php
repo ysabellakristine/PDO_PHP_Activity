@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['table'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch Data</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Reference to your CSS file -->
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <div class="container"> <!-- Container for results -->
@@ -69,20 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['table'])) {
         </select>
         <button type="submit">Fetch Data</button>
     </form>
+    <!-- return to menu -->
+    <br> <br>
+    <form action="index.php" method="get">
+    <button type="menu">RETURN TO MENU</button>
+    </form>
 
-    <?php if (!empty($results)): ?>
-        <h2>Data from Tables:</h2>
-        <?php foreach ($results as $tableName => $data): ?>
-            <h3><?php echo htmlspecialchars($tableName); ?></h3>
-            <?php if (empty($data)): ?>
-                <p>No data available in this table.</p>
-            <?php else: ?>
-                <pre><?php print_r($data); ?></pre>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>No results to display. Please select a table and fetch data.</p>
-    <?php endif; ?>
 </div>
 </body>
 </html>
