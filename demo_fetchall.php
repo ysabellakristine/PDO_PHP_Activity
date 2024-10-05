@@ -42,12 +42,17 @@ if ($table) {                                               // Check if the tabl
 </head>
 <body>
     <div class="container"> <!-- Container for results -->
+    <br> <br>
+    <form action="index.php" method="get">
+        <button type="menu">RETURN TO MENU</button>
+    </form>
         <?php if (!empty($results)) {                                                 // Display results
             echo "<h2>Data from Tables:</h2>";
             foreach ($results as $tableName => $data) {
                 echo "<h2>" . htmlspecialchars($tableName) . "</h2>";
                 echo "<pre>" . print_r($data, true) . "</pre>";          // Use print_r w/ <pre> in between
-            }
+            }   
+            
         } else {
             echo "No data found.";                                                      // Display message when there's no data
         }
