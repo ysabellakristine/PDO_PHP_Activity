@@ -59,19 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['table'])) {
         <button type="submit">Fetch Data</button>
     </form>
 
-    <?php if (!empty($results)): ?>
-        <h2>Data from Tables:</h2>
-        <?php foreach ($results as $tableName => $data): ?>
-            <h3><?php echo htmlspecialchars($tableName); ?></h3>
-            <?php if (empty($data)): ?>
-                <p>No data available in this table.</p>
-            <?php else: ?>
-                <pre><?php print_r($data); ?></pre>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>No results to display. Please select a table and fetch data.</p>
-    <?php endif; ?>
+    <br> <br>
+    <form action="index.php" method="get">
+    <button type="menu">RETURN TO MENU</button>
+    </form>
+
 </div>
 </body>
 </html>
