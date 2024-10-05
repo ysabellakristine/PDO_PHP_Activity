@@ -1,0 +1,73 @@
+body { 
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: rgb(5, 255, 255);
+    line-height: 1.7;
+    display: flex;             
+    justify-content: center;   
+    align-items: center;        
+    height: 100vh;              
+    margin: 0;  
+    flex-direction: column;    
+    text-align: center;         
+    color: rgb(238, 0, 238);             
+    overflow: auto;  /* Ensures content doesn't overflow */
+}
+
+h1 {
+    color: rgb(35, 159, 237);   
+}
+
+h2 { 
+    color: rgb(255, 0, 0);  /* Corrected typo */
+}
+
+p {
+    color: violet;             
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #c800ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #ff1a05;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.container {
+    background-color: #b0faf3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    border: 10px solid #e601ff;
+}
+
+form {
+    width: 100%;                
+    display: block;             
+}
+
+input, select {
+    display: block;             
+    margin: 10px auto;          
+}
