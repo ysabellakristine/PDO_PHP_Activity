@@ -70,10 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {                                     
             <option value="Books">Books</option>
         </select>
         <input type="submit" value="Select">
-    </form>
-    <form action="index.php" method="get">
-    <button type="menu">RETURN TO MENU</button>
-    </form>
+
 
     <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($table)): ?>
         <?php if ($table === 'Users'): ?>
