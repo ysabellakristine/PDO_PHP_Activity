@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['table'])) {
 </head>
 <body>
 <div class="container"> 
-    <h1>Select a Table to Fetch Data</h1>
+    <h1>Fetchall() Demo</h1>
     <form action="demo_fetchall.php" method="post"> 
         <label for="table">Choose a table:</label>
         <select name="table" id="table" required>
